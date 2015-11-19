@@ -2,14 +2,15 @@
 IRACpm R Package: Applies a 7-8 order distortion correction to IRAC astrometric data from the Spitzer Space Telescope
 and includes a function for measuring apparent proper motions between different Epochs.
 
-Instructions for installation into R
+#Instructions for installation into R
 
-:Open R
 install.packages("devtools")
+
 library(devtools)
+
 install_github("esplint/IRACpm")
 
-Basic work flow:
+#Basic work flow:
 
 1) Read in files containing output from the Spitzer Science Center’s APEX single frame module
 form MOPEX using read.in.data.
