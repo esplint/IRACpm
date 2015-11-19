@@ -25,8 +25,11 @@ or CD.solver4
 5) Run mucalc to measure apparent proper motions
 (If accurate relative astrometry is wanted without proper motions, just follow steps 1-3.)
 
-Example datasets and output for CD.solver is CD1, read.in.data is data1, and input data for mucalc
-is epochs3
+#Example
+
+Example datasets and output for CD.solver is CD1, 
+read.in.data is data1, and input data for mucalc is epochs3
+
 To just convert pixel coordinates to World Coordinates using the distortion corrections measured
 follow the example listed below.
 
