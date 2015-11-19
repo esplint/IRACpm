@@ -1,0 +1,5 @@
+exportPattern("^[[:alpha:]]+")
+import(R.utils)
+import(astro)
+import(doMC)
+import(foreach)
