@@ -28,21 +28,31 @@ or CD.solver4
 #Example
 
 Example datasets and output for CD.solver is CD1, 
-read.in.data is data1, and input data for mucalc is epochs3
+read.in.data is data1, and input data for mucalc is epochs3.
 
-To just convert pixel coordinates to World Coordinates using the distortion corrections measured
-follow the example listed below.
+The measured distortion corrections contain a time varying scale factor
+that can either be estimated or measured. In the example below, 
+coor.calc converts pixel coordinates (-100, 104) into RA and Dec
+using the [3.6] distortion correction (wa_pars1), the [3.6] pixel 
+bias corrector (ca_pix1), image central coordinates and rotation 
+(55.824647,32.3151426,-4.5420559), and explicitly indicating that 
+the calculation is for channel one (1). In the first calculation,
+a measured scale factor (1.000083,1.000295) is used. 
+In the second, coor.calc estimates the scale factor using the
+time of observations taken from data1. The difference between
+these two calculations is ~2 miliarcseconds.
+
 
 data(CD1,ca_pix1,wa_pars1,data1)
 
 options(digits=10)
 
---using a measured scale factor
+1) using a measured scale factor
 
-coor.calc(ca_pix1,wa_pars1,CD1[[1]][1,],-100,104,CD1[[2]],1)
+coor.calc(ca_pix1,wa_pars1,c(55.824647,32.3151426,-4.5420559),-100,104,c(1.000083,1.000295),1)
 
---estimating a scale factor from HMJD.
+2) estimating a scale factor from HMJD.
 
-coor.calc(ca_pix1,wa_pars1,CD1[[1]][1,],-100,104,data1,1)
+coor.calc(ca_pix1,wa_pars1,c(55.824647,32.3151426,-4.5420559),-100,104,data1,1)
 
---the difference for this point in the array is ~2 mas
+
