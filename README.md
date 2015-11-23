@@ -39,7 +39,7 @@ bias corrector (ca_pix1), image central coordinates and rotation
 the calculation is for channel one (1). In the first calculation,
 a measured scale factor (1.000083,1.000295) is used. 
 In the second, coor.calc estimates the scale factor using the
-time of observations taken from data1. The difference between
+time of observations as indicated in data1. The difference between
 these two calculations is ~2 miliarcseconds.
 
 
