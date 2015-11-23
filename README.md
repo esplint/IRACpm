@@ -38,7 +38,11 @@ data(CD1,ca_pix1,wa_pars1,data1)
 options(digits=10)
 
 --using a measured scale factor
+
 coor.calc(ca_pix1,wa_pars1,CD1[[1]][1,],-100,104,CD1[[2]],1)
-#estimating a scale factor from HMJD.
+
+--estimating a scale factor from HMJD.
+
 coor.calc(ca_pix1,wa_pars1,CD1[[1]][1,],-100,104,data1,1)
-#the difference for this point in the array is ~2 mas
+
+--the difference for this point in the array is ~2 mas
