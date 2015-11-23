@@ -34,7 +34,9 @@ To just convert pixel coordinates to World Coordinates using the distortion corr
 follow the example listed below.
 
 data(CD1,ca_pix1,wa_pars1,data1)
+
 options(digits=10)
+
 #using a measured scale factor
 coor.calc(ca_pix1,wa_pars1,CD1[[1]][1,],-100,104,CD1[[2]],1)
 #estimating a scale factor from HMJD.
