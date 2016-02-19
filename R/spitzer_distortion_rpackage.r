@@ -254,7 +254,7 @@ read.ipactable <- function(file1) {
   hdr <- hdr[2:length(hdr)]
 
   line <- readLines(con, n=1, warn=F) 
-  units <- gsub("^\\s+|\\s+$",strsplit(line,'|',fixed=T)[[1]])
+  units <- gsub("^\\s+|\\s+$", "", strsplit(line,'|',fixed=T)[[1]])
   units <- units[2:length(units)]
 
   units[units == 'long'] <- 'integer'
