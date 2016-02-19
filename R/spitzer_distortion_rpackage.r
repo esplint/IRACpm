@@ -355,8 +355,10 @@ data(wa_pars1,wa_pars2,ca_pix1)
 	}
 
 	cda1 <- imageCD_solver(data,i.coor1,cda,pix1,pars1,pix2,pars2,cores,star_id) 
+  if (length(cda1) == 4) { cda1 <- t(cda1)}
   nums <- cda1[,4]
   cda1 <- cda1[,1:3]
+  if (length(cda1) == 3) { cda1 <- t(cda1)}
 
   i.coor.1 <- coor.calc(pix=pix1,pars=pars1,crsa=cda1[match(data[[1]]$image_id[i1],data[[2]]$image_id),],u=data[[1]]$x[i1],v=data[[1]]$y[i1],sdata,1)
   i.coor.2 <- coor.calc(pix=pix2,pars=pars2,crsa=cda1[match(data[[1]]$image_id[i2],data[[2]]$image_id),],u=data[[1]]$x[i2],v=data[[1]]$y[i2],sdata,2)
@@ -379,8 +381,10 @@ data(wa_pars1,wa_pars2,ca_pix1)
 	i.coor2 <- calc_all(pix1,pars1,pix2,pars2,cda1,data,data$star_id[nde2],TRUE,cores)
 
 	cda2 <- imageCD_solver(data,i.coor2,cda1,pix1,pars1,pix2,pars2,cores,star_id) 
+  if (length(cda2) == 4) { cda2 <- t(cda2)}
   nums <- cda2[,4]
   cda2 <- cda2[,1:3]
+  if (length(cda2) == 3) { cda2 <- t(cda2)}
   #res2 <- single_image_resid(data,i.coor2,cda2,pix1,pars1,pix2,pars2,cores,star_id)
 
   i.coor.1 <- coor.calc(pix=pix1,pars=pars1,crsa=cda2[match(data[[1]]$image_id[i1],data[[2]]$image_id),],u=data[[1]]$x[i1],v=data[[1]]$y[i1],sdata,1)
@@ -402,8 +406,10 @@ data(wa_pars1,wa_pars2,ca_pix1)
 
 	i.coor3 <- calc_all(pix1,pars1,pix2,pars2,cda2,data,data$star_id[nde2],TRUE,cores)
 	cda3 <- imageCD_solver(data,i.coor3,cda2,pix1,pars1,pix2,pars2,cores,star_id) 
+  if (length(cda3) == 4) { cda3 <- t(cda3)}
   nums <- cda3[,4]
   cda3 <- cda3[,1:3]
+  if (length(cda3) == 3) { cda3 <- t(cda3)}
   #res3 <- single_image_resid(data,i.coor3,cda3,pix1,pars1,pix2,pars2,cores,star_id)
 
   i.coor.1 <- coor.calc(pix=pix1,pars=pars1,crsa=cda3[match(data[[1]]$image_id[i1],data[[2]]$image_id),],u=data[[1]]$x[i1],v=data[[1]]$y[i1],sdata,1)
@@ -425,8 +431,10 @@ data(wa_pars1,wa_pars2,ca_pix1)
 
 	i.coor4 <- calc_all(pix1,pars1,pix2,pars2,cda3,data,data$star_id[nde2],TRUE,cores)
 	cda4 <- imageCD_solver(data,i.coor4,cda3,pix1,pars1,pix2,pars2,cores,star_id)
+  if (length(cda4) == 4) { cda4 <- t(cda4)}
   nums <- cda4[,4]
   cda4 <- cda4[,1:3]
+  if (length(cda4) == 3) { cda4 <- t(cda4)}
   res4 <- single_image_resid(data,i.coor4,cda4,pix1,pars1,pix2,pars2,cores,star_id)
 
 	return(cbind(cda4,nums,res4))
@@ -1065,8 +1073,10 @@ data(wa_pars1,wa_pars2,ca_pix1)
 #align to the realz.....
 	#res <- single_image_resid(data,realz,cda,pix1,pars1,pix2,pars2,cores,star_id)  
 	cda2 <- imageCD_solver(data,realz,cda,pix1,pars1,pix2,pars2,cores,star_id,TRUE) 
+  if (length(cda2) == 4) { cda2 <- t(cda2)}
   nums <- cda2[,4]
   cda2 <- cda2[,1:3]
+  if (length(cda2) == 3) { cda2 <- t(cda2)}
 	#res2 <- single_image_resid(data,realz,cda2,pix1,pars1,pix2,pars2,cores,star_id) 
 
 
@@ -1102,8 +1112,10 @@ data(wa_pars1,wa_pars2,ca_pix1)
   nde2 <- setdiff(nde2,k1)
   
 	cda3 <- imageCD_solver(data,realz,cda2,pix1,pars1,pix2,pars2,cores,star_id) 
+  if (length(cda3) == 4) { cda3 <- t(cda3)}
   nums <- cda3[,4]
   cda3 <- cda3[,1:3]
+  if (length(cda3) == 3) { cda3 <- t(cda3)}
 	#res3 <- single_image_resid(data,realz,cda3,pix1,pars1,pix2,pars2,cores,star_id) 
 
     i.coor.1 <- coor.calc(pix=pix1,pars=pars1,crsa=cda3[match(data[[1]]$image_id[i1],data[[2]]$image_id),],u=data[[1]]$x[i1],v=data[[1]]$y[i1],data,1)
@@ -1124,8 +1136,10 @@ data(wa_pars1,wa_pars2,ca_pix1)
   data$data$y[k1] <- NA
 
 	cda4 <- imageCD_solver(data,realz,cda3,pix1,pars1,pix2,pars2,cores,star_id) 
+  if (length(cda4) == 4) { cda4 <- t(cda4)}
   nums <- cda4[,4]
   cda4 <- cda4[,1:3]
+  if (length(cda4) == 3) { cda4 <- t(cda4)}
 	#res4 <- single_image_resid(data,realz,cda4,pix1,pars1,pix2,pars2,cores,star_id) 
 
  i.coor.1 <- coor.calc(pix=pix1,pars=pars1,crsa=cda4[match(data[[1]]$image_id[i1],data[[2]]$image_id),],u=data[[1]]$x[i1],v=data[[1]]$y[i1],data,1)
@@ -1146,8 +1160,10 @@ data(wa_pars1,wa_pars2,ca_pix1)
   data$data$y[k1] <- NA
 
   cda5 <- imageCD_solver(data,realz,cda4,pix1,pars1,pix2,pars2,cores,star_id)
+  if (length(cda5) == 4) { cda5 <- t(cda5)}
   nums <- cda5[,4]
   cda5 <- cda5[,1:3]
+  if (length(cda5) == 3) { cda5 <- t(cda5)}
 	res5 <- single_image_resid(data,realz,cda5,pix1,pars1,pix2,pars2,cores,star_id) 
 		
 	return(cbind(cda5,nums,res5))
@@ -1231,8 +1247,10 @@ datau <- data
 #align to the realz..... without any scale change....
 	#res <- single_image_resid(data,realz,cda,pix1,pars1,pix2,pars2,cores,star_id)  
 	cda2 <- imageCD_solver(data,realz,cda,pix1,pars1,pix2,pars2,cores,star_id,TRUE) 
+  if (length(cda2) == 4) { cda2 <- t(cda2)}
   nums <- cda2[,4]
   cda2 <- cda2[,1:3]
+  if (length(cda2) == 3) { cda2 <- t(cda2)}
 	#res2 <- single_image_resid(data,realz,cda2,pix1,pars1,pix2,pars2,cores,star_id) 
 
 
@@ -1296,8 +1314,10 @@ data <- datau
   }
 
 	cda2 <- imageCD_solver(data,realz,cda,pix1,pars1,pix2,pars2,cores,star_id,TRUE) 
+  if (length(cda2) == 4) { cda2 <- t(cda2)}
   nums <- cda2[,4]
   cda2 <- cda2[,1:3]
+  if (length(cda2) == 3) { cda2 <- t(cda2)}
 
   i1 <- which(data[[1]]$image_id > 0)
   i2 <- which(data[[1]]$image_id < 0)
@@ -1331,8 +1351,10 @@ data <- datau
   nde2 <- setdiff(nde2,k1)
   
 	cda3 <- imageCD_solver(data,realz,cda2,pix1,pars1,pix2,pars2,cores,star_id) 
+  if (length(cda3) == 4) { cda3 <- t(cda3)}
   nums <- cda3[,4]
   cda3 <- cda3[,1:3]
+  if (length(cda3) == 3) { cda3 <- t(cda3)}
 	#res3 <- single_image_resid(data,realz,cda3,pix1,pars1,pix2,pars2,cores,star_id) 
 
   i.coor.1 <- coor.calc(pix=pix1,pars=pars1,crsa=cda3[match(data[[1]]$image_id[i1],data[[2]]$image_id),],u=data[[1]]$x[i1],v=data[[1]]$y[i1],data,1)
@@ -1353,8 +1375,10 @@ data <- datau
   data$data$y[k1] <- NA
 
 	cda4 <- imageCD_solver(data,realz,cda3,pix1,pars1,pix2,pars2,cores,star_id) 
+  if (length(cda4) == 4) { cda4 <- t(cda4)}
   nums <- cda4[,4]
   cda4 <- cda4[,1:3]
+  if (length(cda4) == 3) { cda4 <- t(cda4)}
 	#res4 <- single_image_resid(data,realz,cda4,pix1,pars1,pix2,pars2,cores,star_id) 
 
  i.coor.1 <- coor.calc(pix=pix1,pars=pars1,crsa=cda4[match(data[[1]]$image_id[i1],data[[2]]$image_id),],u=data[[1]]$x[i1],v=data[[1]]$y[i1],data,1)
@@ -1375,8 +1399,10 @@ data <- datau
   data$data$y[k1] <- NA
 
   cda5 <- imageCD_solver(data,realz,cda4,pix1,pars1,pix2,pars2,cores,star_id)
+  if (length(cda5) == 4) { cda5 <- t(cda5)}
   nums <- cda5[,4]
   cda5 <- cda5[,1:3]
+  if (length(cda5) == 3) { cda5 <- t(cda5)}
 	res5 <- single_image_resid(data,realz,cda5,pix1,pars1,pix2,pars2,cores,star_id) 
 
 
@@ -1478,8 +1504,10 @@ datau <- data
 #align to the realz..... without any scale change....
 	#res <- single_image_resid(data,realz,cda,pix1,pars1,pix2,pars2,cores,star_id)  
 	cda2 <- imageCD_solver(data,realz,cda,pix1,pars1,pix2,pars2,cores,star_id,TRUE) 
+  if (length(cda2) == 4) { cda2 <- t(cda2)}
   nums <- cda2[,4]
   cda2 <- cda2[,1:3]
+  if (length(cda2) == 3) { cda2 <- t(cda2)}
 	#res2 <- single_image_resid(data,realz,cda2,pix1,pars1,pix2,pars2,cores,star_id) 
 
 
@@ -1543,8 +1571,10 @@ data <- datau
   }
 
 	cda2 <- imageCD_solver(data,realz,cda,pix1,pars1,pix2,pars2,cores,star_id,TRUE) 
+  if (length(cda2) == 4) { cda2 <- t(cda2)}
   nums <- cda2[,4]
   cda2 <- cda2[,1:3]
+  if (length(cda2) == 3) { cda2 <- t(cda2)}
   #res2 <- single_image_resid(data,realz,cda2,pix1,pars1,pix2,pars2,cores,star_id)
 
   i1 <- which(data[[1]]$image_id > 0)
@@ -1573,8 +1603,10 @@ data <- datau
 	i.coor2 <- calc_all(pix1,pars1,pix2,pars2,cda2,data,data$star_id[nde2],TRUE,cores)
 
 	cda3 <- imageCD_solver(data,i.coor2,cda2,pix1,pars1,pix2,pars2,cores,star_id) 
+  if (length(cda3) == 4) { cda3 <- t(cda3)}
   nums <- cda3[,4]
   cda3 <- cda3[,1:3]
+  if (length(cda3) == 3) { cda3 <- t(cda3)}
   	#res3 <- single_image_resid(data,i.coor2,cda3,pix1,pars1,pix2,pars2,cores,star_id) 
 
   i.coor.1 <- coor.calc(pix=pix1,pars=pars1,crsa=cda3[match(data[[1]]$image_id[i1],data[[2]]$image_id),],u=data[[1]]$x[i1],v=data[[1]]$y[i1],data,1)
@@ -1596,8 +1628,10 @@ data <- datau
 
 	i.coor3 <- calc_all(pix1,pars1,pix2,pars2,cda2,data,data$star_id[nde2],TRUE,cores)
 	cda4 <- imageCD_solver(data,i.coor3,cda3,pix1,pars1,pix2,pars2,cores,star_id) 
+  if (length(cda4) == 4) { cda4 <- t(cda4)}
   nums <- cda4[,4]
   cda4 <- cda4[,1:3]
+  if (length(cda4) == 3) { cda4 <- t(cda4)}
 	#res4 <- single_image_resid(data,realz,cda4,pix1,pars1,pix2,pars2,cores,star_id) 
 
  i.coor.1 <- coor.calc(pix=pix1,pars=pars1,crsa=cda4[match(data[[1]]$image_id[i1],data[[2]]$image_id),],u=data[[1]]$x[i1],v=data[[1]]$y[i1],data,1)
@@ -1619,12 +1653,13 @@ data <- datau
 
 	i.coor4 <- calc_all(pix1,pars1,pix2,pars2,cda3,data,data$star_id[nde2],TRUE,cores)
   cda5 <- imageCD_solver(data,i.coor4,cda4,pix1,pars1,pix2,pars2,cores,star_id)
+  if (length(cda5) == 4) { cda5 <- t(cda5)}
   nums <- cda5[,4]
   cda5 <- cda5[,1:3]
+  if (length(cda5) == 3) { cda5 <- t(cda5)}
 	res5 <- single_image_resid(data,i.coor4,cda5,pix1,pars1,pix2,pars2,cores,star_id) 
 
 
 	return(list(cda=cbind(cda5,nums,res5),scale=c(f1,f2)))
 }
-
 
