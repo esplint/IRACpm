@@ -177,7 +177,7 @@ bad_pix_trim <- function(data,edget=TRUE) {
   #eliminate any sources above our measured flux limit.... 
   #flux limits: 728000 FLUX * SEC exposure CH1
   #821600 * SEC exposure for CH2
-  badf <- foreach (j=1:length(data$image_key$image_id),.combine=c) %dopar% {
+  badf <- foreach (j=1:length(data$image_key$image_id),.combine=c) %do% {
     if (data$image_key$image_id[j] > 0) {
       which(data$data$FLUX > 728000 / data$image_key$EXPTIME[j] & data$data$image_id == data$image_key$image_id[j])
     } else {
